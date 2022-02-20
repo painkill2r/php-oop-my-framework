@@ -1,0 +1,19 @@
+{
+  "name": "painkill2r/inflearn-lecture-lib",
+  "description": "This is a Simple PHP micro framework",
+  "type": "library",
+  "license": "MIT",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "wdEffort",
+      "email": "yoman3011@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Painkill2r\\InflearnLectureLib\\": "src/"
+    }
+  },
+  "require": {}
+}

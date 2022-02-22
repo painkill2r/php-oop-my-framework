@@ -4,6 +4,9 @@ namespace Painkill2r\InflearnLectureLib\Session;
 
 use Painkill2r\InflearnLectureLib\Database\Adaptor;
 
+/**
+ * 데이터베이스 기반 세션 핸들러
+ */
 class DatabaseSessionHandler implements \SessionHandlerInterface
 {
 

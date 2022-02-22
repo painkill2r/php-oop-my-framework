@@ -2,6 +2,9 @@
 
 namespace Painkill2r\InflearnLectureLib\Session;
 
+/**
+ * 파일 기반 세션 핸들러
+ */
 class FileSessionHanlder implements \SessionHandlerInterface
 {
     /**

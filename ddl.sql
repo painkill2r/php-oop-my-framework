@@ -1,27 +1,35 @@
-create table sessions
-(
-    id         varchar(255)                          not null
-        primary key,
-    payload    text null,
-    created_at timestamp default current_timestamp() not null,
-    updated_at timestamp default current_timestamp() not null on update current_timestamp ()
-);
+DROP TABLE sessions;
+DROP TABLE users;
+DROP TABLE posts;
+COMMIT;
 
-create table users
+CREATE TABLE IF NOT EXISTS sessions
 (
-    id       int auto_increment
-        primary key,
-    email    varchar(100) not null,
-    password varchar(255) not null,
-    username varchar(30)  not null
-);
+    id         VARCHAR(255) PRIMARY KEY COMMENT 'Session 아이디',
+    payload    TEXT COMMENT 'Session 정보',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '등록일시',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일시'
+    );
 
-create table posts
+CREATE TABLE IF NOT EXISTS users
 (
-    id         int auto_increment
-        primary key,
-    user_id    int null,
-    title      varchar(100) not null,
-    content    text null,
-    created_at datetime     not null
-);
+    id         INT AUTO_INCREMENT PRIMARY KEY COMMENT '회원 고유 일련번호',
+    email      VARCHAR(255) UNIQUE NOT NULL COMMENT '이메일',
+    password   VARCHAR(255)        NOT NULL COMMENT '비밀번호',
+    username   VARCHAR(50)         NOT NULL COMMENT '이름',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '등록일시',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일시'
+    );
+
+CREATE TABLE IF NOT EXISTS posts
+(
+    id         INT AUTO_INCREMENT PRIMARY KEY COMMENT '게시글 고유 일련번호',
+    user_id    INT DEFAULT NULL COMMENT '회원 고유 일련번호',
+    title      VARCHAR(255) NOT NULL COMMENT '제목',
+    content    TEXT COMMENT '내용',
+    created_at TIMESTAMP DEFAULT CURRENT_TIME COMMENT '등록일시',
+    updated_at TIMESTAMP DEFAULT CURRENT_TIME ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일시',
+    CONSTRAINT posts_fk1_user_id FOREIGN KEY (user_id) REFERENCES users (id)
+    );
+
+COMMIT;

@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS users
     id         INT AUTO_INCREMENT PRIMARY KEY COMMENT '회원 고유 일련번호',
     email      VARCHAR(255) UNIQUE NOT NULL COMMENT '이메일',
     password   VARCHAR(255)        NOT NULL COMMENT '비밀번호',
-    username   VARCHAR(50)         NOT NULL COMMENT '이름',
+    username   VARCHAR(50) COMMENT '이름',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '등록일시',
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일시'
     );

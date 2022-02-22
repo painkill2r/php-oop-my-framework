@@ -23,7 +23,7 @@ class Theme
     /**
      * View 설정 메소드
      *
-     * @param string $view
+     * @param string $view View 이름
      * @param array $vars View에 전달할 데이터 배열
      * @return mixed
      */

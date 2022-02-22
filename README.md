@@ -17,7 +17,6 @@
 ├── README.md
 ├── composer.json
 ├── ddl.sql
-├── index.php
 ├── src
       ├── Application.php
       ├── Database
@@ -41,8 +40,6 @@
     - Composer 정의 파일
 2. ddl.sql
     - 데이터베이스 DDL(Data Definition Language, 데이터 정의어) 파일
-3. index.php
-    - Main 실행 파일
 4. src/Database/Adaptor.php
     - Database 연결 및 SQL Query 실행 정의 파일
 5. src/Http/Request.php
